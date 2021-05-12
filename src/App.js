@@ -21,7 +21,6 @@ export default function App() {
             <ShoppingCart />
           </Route>
           <Route path="/:id" children={<Detail />}>
-            <Detail />
           </Route>
           {/* <Route path="/shop/:id" children={<ShoppingCart />}>
             <ShoppingCart />
