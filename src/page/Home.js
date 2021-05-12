@@ -41,7 +41,7 @@ export default function Home() {
       .then(data => setProduct(data));
   }, []);
 
-  const element = Product.map((item, index) => {
+  const element = Product.map(item => {
     return (
       <div className="col-md-4 col-sm-6 mb-3" key={item.id}>
         <Card>
