@@ -20,11 +20,7 @@ export default function App() {
           <Route path="/shop" exact>
             <ShoppingCart />
           </Route>
-          <Route path="/:id" children={<Detail />}>
-          </Route>
-          {/* <Route path="/shop/:id" children={<ShoppingCart />}>
-            <ShoppingCart />
-          </Route> */}
+          <Route path="/:id" children={<Detail />} />
         </Switch>
       </Router>
     </div>
