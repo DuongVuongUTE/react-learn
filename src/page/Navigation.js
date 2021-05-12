@@ -1,25 +1,17 @@
 import React from 'react';
-import React, { useState } from 'react';
-import {
-  Button,
-  Card,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl
-} from 'react-bootstrap';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 export default function Navigation() {
   const style = {
-    color: 'white'
+    color: 'white',
+    margin: '0 0 0 10px'
   };
   return (
     <>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>
           <img
-            alt=""
+            alt="logo"
             src="https://react-bootstrap.netlify.app/logo.svg"
             width="30"
             height="30"
@@ -28,16 +20,12 @@ export default function Navigation() {
           React Bootstrap
         </Navbar.Brand>
         <Nav className="ml-auto">
-          <Nav.Link>
-            <Link style={style} to="/">
-              Home
-            </Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link style={style} to="/shop">
-              Shop
-            </Link>
-          </Nav.Link>
+          <Link style={style} to="/">
+            Home
+          </Link>
+          <Link style={style} to="/shop">
+            Shop
+          </Link>
         </Nav>
       </Navbar>
     </>
