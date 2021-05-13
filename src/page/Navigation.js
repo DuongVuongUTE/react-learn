@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export default function Navigation() {
   const style = {
     color: 'white',
-    margin: '0 0 0 10px'
+    margin: '0 0 0 10px',
+    textDecoration : 'none',
   };
   return (
     <>
