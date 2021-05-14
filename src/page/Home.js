@@ -50,7 +50,7 @@ export default function Home() {
             <Card.Title>{item.name}</Card.Title>
             <Card.Text>{item.price}</Card.Text>
           </Card.Body>
-          <Link to={`/${item.id}`}>
+          <Link to={`/product/${item.id}`}>
             <Button variant="primary">View more</Button>
           </Link>
         </Card>
