@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Spinner } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 export default function Home() {
@@ -34,11 +34,15 @@ export default function Home() {
   //       'https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-new-600x600.jpg'
   //   }
   // ];
+  const [isLoading, setLoading] = useState(true);
   const [Product, setProduct] = useState([]);
   useEffect(() => {
     fetch('https://fake-rest-api-nodejs.herokuapp.com/products/')
       .then(response => response.json())
-      .then(data => setProduct(data));
+      .then(data => {
+        setProduct(data);
+        setLoading(false);
+      });
   }, []);
 
   const element = Product.map(item => {
@@ -58,19 +62,27 @@ export default function Home() {
     );
   });
   return (
-    <div>
-      <div className="d-flex justify-content-between my-3">
-        <h1>Home</h1>
-        <Button
-          variant="primary"
-          onClick={() => {
-            setProduct([]);
-          }}
-        >
-          Clear
-        </Button>
-      </div>
-      <div className="row">{element}</div>
-    </div>
+    <>
+      {isLoading ? (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      ) : (
+        <div>
+          <div className="d-flex justify-content-between my-3">
+            <h1>Home</h1>
+            <Button
+              variant="primary"
+              onClick={() => {
+                setProduct([]);
+              }}
+            >
+              Clear
+            </Button>
+          </div>
+          <div className="row">{element}</div>
+        </div>
+      )}
+    </>
   );
 }

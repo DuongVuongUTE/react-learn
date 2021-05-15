@@ -18,24 +18,27 @@ export default function Detail() {
   useEffect(() => {}, []);
   return (
     <div>
-      {isLoading && (
+      {isLoading ? (
         <Spinner animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
-      )}{' '}
-      <h1>Detail</h1>
-      <Card className="mt-3">
-        <Card.Header as="h5">Mã sản phẩm: {ItemDetail.id}</Card.Header>
-        <Card.Body>
-          <Card.Title>Tên sản phẩm: {ItemDetail.name}</Card.Title>
-          <img src={ItemDetail.thumbnail} alt="Product Image" />
-          <Card.Text>Giá: {ItemDetail.price}</Card.Text>
-          <Card.Text>Số lượng: {ItemDetail.quantity}</Card.Text>
-          <Link to={`/shop`}>
-            <Button variant="primary">Add to cart</Button>
-          </Link>
-        </Card.Body>
-      </Card>
+      ) : (
+        <div>
+          <h1>Detail</h1>
+          <Card className="mt-3">
+            <Card.Header as="h5">Mã sản phẩm: {ItemDetail.id}</Card.Header>
+            <Card.Body>
+              <Card.Title>Tên sản phẩm: {ItemDetail.name}</Card.Title>
+              <img src={ItemDetail.thumbnail} alt="Product Image" />
+              <Card.Text>Giá: {ItemDetail.price}</Card.Text>
+              <Card.Text>Số lượng: {ItemDetail.quantity}</Card.Text>
+              <Link to={`/shop`}>
+                <Button variant="primary">Add to cart</Button>
+              </Link>
+            </Card.Body>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }
