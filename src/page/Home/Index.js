@@ -16,7 +16,7 @@ export default function Home() {
   const [Product, setProduct] = useState([]);
   useEffect(() => {
     fetch(
-      `https://fake-rest-api-nodejs.herokuapp.com/products/?&_page=${currentPage}&_limit=${ITEMS_PER_PAGE}`
+      `https://fake-rest-api-nodejs.herokuapp.com/products/?&_page=${currentPage}&_limit=${ITEMS_PER_PAGE}&_sort=price&_order=${sortOrder}`
     )
       .then(response => {
         setTotalItems(response.headers.get('X-Total-Count'));
@@ -26,7 +26,7 @@ export default function Home() {
         setProduct(data);
         setLoading(false);
       });
-  }, [currentPage]);
+  }, [currentPage, sortOrder]);
   const style = {
     position: 'absolute',
     top: '50%',
@@ -60,16 +60,15 @@ export default function Home() {
         <div>
           <div className="d-flex justify-content-between my-3">
             <h1>Home</h1>
-            <div>
-              <select
-                value={sortOrder}
-                onChange={event => setSortOrder(event.target.value)}
-              >
-                <option value="">Sắp xếp theo giá tiền</option>
-                <option value="asc">Từ thấp đến cao</option>
-                <option value="desc">Từ cao đến thấp</option>
-              </select>
-            </div>
+            <select
+              className="my-auto"
+              value={sortOrder}
+              onChange={event => setSortOrder(event.target.value)}
+            >
+              <option value="">Sắp xếp theo giá tiền</option>
+              <option value="asc">Từ thấp đến cao</option>
+              <option value="desc">Từ cao đến thấp</option>
+            </select>
           </div>
           <div className="row">{element}</div>
           <br />
