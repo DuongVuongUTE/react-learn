@@ -44,7 +44,13 @@ export default function Home() {
         setLoading(false);
       });
   }, []);
-
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    z_index: '1000'
+  };
   const element = Product.map(item => {
     return (
       <div className="col-md-4 col-sm-6 mb-3" key={item.id}>
@@ -64,7 +70,7 @@ export default function Home() {
   return (
     <>
       {isLoading ? (
-        <Spinner animation="border" role="status">
+        <Spinner style={style} animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
       ) : (
