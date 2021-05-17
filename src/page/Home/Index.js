@@ -9,6 +9,7 @@ export default function Home() {
   const ITEMS_PER_PAGE = 1;
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortOrder, setSortOrder] = useState('');
   function changePage(page) {
     setCurrentPage(page);
   }
@@ -59,14 +60,16 @@ export default function Home() {
         <div>
           <div className="d-flex justify-content-between my-3">
             <h1>Home</h1>
-            <Button
-              variant="primary"
-              onClick={() => {
-                setProduct([]);
-              }}
-            >
-              Clear
-            </Button>
+            <div>
+              <select
+                value={sortOrder}
+                onChange={event => setSortOrder(event.target.value)}
+              >
+                <option value="">Sắp xếp theo giá tiền</option>
+                <option value="asc">Từ thấp đến cao</option>
+                <option value="desc">Từ cao đến thấp</option>
+              </select>
+            </div>
           </div>
           <div className="row">{element}</div>
           <br />
