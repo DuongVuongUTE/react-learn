@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { Button, Card, Spinner } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import React, { useState } from 'react';
 import Pagination from './PaginationProduct';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
