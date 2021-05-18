@@ -19,7 +19,9 @@ export default function App() {
           <Route path="/shop" exact>
             <ShoppingCart />
           </Route>
-          <Route path="/product/:id" children={<Detail />} />
+          <Route path="/product/:id">
+            <Detail />
+          </Route>
         </Switch>
       </Router>
     </div>
