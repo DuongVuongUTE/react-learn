@@ -6,7 +6,7 @@ import Pagination from './PaginationProduct';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 export default function Home() {
   const [isLoading, setLoading] = useState(true);
-  const ITEMS_PER_PAGE = 1;
+  const ITEMS_PER_PAGE = 3;
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState('');
