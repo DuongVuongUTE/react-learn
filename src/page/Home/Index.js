@@ -38,7 +38,11 @@ export default function Home() {
     return (
       <div className="col-md-4 col-sm-6 mb-3" key={item.id}>
         <Card>
-          <Card.Img variant="top" src={item.thumbnail} />
+          <Card.Img
+            className="img-product"
+            variant="top"
+            src={item.thumbnail}
+          />
           <Card.Body>
             <Card.Title>{item.name}</Card.Title>
             <Card.Text>{item.price}</Card.Text>
